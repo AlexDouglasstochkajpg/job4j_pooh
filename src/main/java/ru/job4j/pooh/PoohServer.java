@@ -37,26 +37,21 @@ public class PoohServer {
                             if (action.equals("intro")) {
                                 if (name.equals("queue")) {
                                     queueSchema.addReceiver(
-                                            new SocketReceiver(text, new PrintWriter(out))
-                                    );
+                                            new SocketReceiver(text, new PrintWriter(out)));
                                 }
                                 if (name.equals("topic")) {
                                     topicSchema.addReceiver(
-                                            new SocketReceiver(text, new PrintWriter(out))
-                                    );
-                                }
-                            }
+                                            new SocketReceiver(text, new PrintWriter(out)));
+                                }}
                             if (action.equals("queue")) {
                                 queueSchema.publish(new Message(name, text));
                             }
                             if (action.equals("topic")) {
                                 topicSchema.publish(new Message(name, text));
-                            }
-                        }
+                            }}
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
-                });
+                    }});
             }
         } catch (Exception e) {
             e.printStackTrace();
